@@ -1,0 +1,15 @@
+E:\PTPMQL2026\NewApp\bin\Debug\net10.0\NewApp.exe
+E:\PTPMQL2026\NewApp\bin\Debug\net10.0\NewApp.deps.json
+E:\PTPMQL2026\NewApp\bin\Debug\net10.0\NewApp.runtimeconfig.json
+E:\PTPMQL2026\NewApp\bin\Debug\net10.0\NewApp.dll
+E:\PTPMQL2026\NewApp\bin\Debug\net10.0\NewApp.pdb
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.AssemblyInfoInputs.cache
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.AssemblyInfo.cs
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.csproj.CoreCompileInputs.cache
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.sourcelink.json
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.dll
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\refint\NewApp.dll
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.pdb
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\NewApp.genruntimeconfig.cache
+E:\PTPMQL2026\NewApp\obj\Debug\net10.0\ref\NewApp.dll
