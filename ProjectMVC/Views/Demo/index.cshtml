@@ -4,3 +4,19 @@
 <div class="text-center" style="margin-top: 50px;">
     <h1>Hello 2221050813 - Nguyen The Vinh</h1>
 </div>
+
+<h1>@ViewBag.Title</h1>
+<h2>@ViewBag.Message</h2>
+<h3>Số lượng: @ViewBag.Count</h3>
+
+<h2>Nhập họ tên</h2>
+<form method="post">
+    <input type="text" name="fullname" placeholder="Nhập họ tên">
+    
+    <button type="submit">Gửi</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p style="color: green">@ViewBag.Message</p>
+}
