@@ -1,19 +1,20 @@
-using System.Collections.Specialized;
-using System.ComponentModel.Design;
-using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using ProjectMVC.Models;
+
 namespace ProjectMVC.Controllers;
-public class StudentController : Controllers
+
+public class StudentController : Controller
 {
     [HttpGet]
-    public ActionResult Index()
+    public IActionResult Index()
     {
         return View(new Student());
     }
 
     [HttpPost]
-    public Actionresult Index(Student student)
+    public IActionResult Index(Student student)
     {
-        ViewBag.ThongBao = "Xin chao: " +student.fullName + "- Ma sinh vien: " + student.studentNumber;
+        ViewBag.ThongBao = "Xin chao: " + student.fullName + "- Ma sinh vien: " + student.studentNumber;
         return View(student);
     }
 }

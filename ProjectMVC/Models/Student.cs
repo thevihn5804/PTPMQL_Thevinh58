@@ -1,8 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ProjectMVC.Models
 {
-    public class Student
+    [Table("Student")]
+    public class Student()
     {
-        public string studentNumber { get; set; } 
+        [Key]
+        public string studentNumber { get; set; } = default!;
         public string fullName { get; set; }
     }
 }
