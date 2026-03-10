@@ -1,10 +1,56 @@
-<h2>Nhap thong tin sinh vien @ViewBag.ThongBao</h2>
-<form asp-action="Index" method="post">
-    <input type="text" name="studentNumber" placeholder="Nhap ma sinh vien"> 
-    <br>
-    <input type="text" name="fullName" placeholder="Nhap ho ten">
-    <br>
-    <button type="submit">Gui</button>
+@model IEnumerable<ProjectMVC.Models.Entities.Student>
+
+@{
+    ViewData["Title"] = "Danh sach sinh vien";
+    var keyword = ViewBag.Keyword as string;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Danh sach sinh vien</h2>
+    <a asp-action="Create" class="btn btn-primary">Them moi</a>
+</div>
+
+<form asp-action="Index" method="get" class="row g-2 mb-3">
+    <div class="col-md-6">
+        <input type="text" name="keyword" value="@keyword" class="form-control"
+               placeholder="Tim theo ma sinh vien hoac ho ten" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Tim kiem</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Bo loc</a>
+    </div>
 </form>
 
-<p>@ViewBag.ThongBao</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ma sinh vien</th>
+            <th>Ho ten</th>
+            <th>Tuoi</th>
+            <th style="width: 180px;">Thao tac</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentCode</td>
+                    <td>@student.FullName</td>
+                    <td>@(student.Age?.ToString() ?? "-")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@student.StudentCode" class="btn btn-sm btn-warning">Sua</a>
+                        <a asp-action="Delete" asp-route-id="@student.StudentCode" class="btn btn-sm btn-danger">Xoa</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">Khong co du lieu phu hop.</td>
+            </tr>
+        }
+    </tbody>
+</table>

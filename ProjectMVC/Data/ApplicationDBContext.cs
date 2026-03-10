@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectMVC.Models;
+using ProjectMVC.Models.Entities;
 
 namespace ProjectMVC.Data
 {
