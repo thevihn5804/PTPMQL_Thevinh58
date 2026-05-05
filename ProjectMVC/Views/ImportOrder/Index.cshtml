@@ -1,0 +1,22 @@
+@model IEnumerable<ImportOrder>
+
+<h2>Phiếu nhập</h2>
+<a href="/ImportOrders/Create">+ Tạo</a>
+
+<table border="1">
+<tr>
+<th>ID</th><th>Ngày</th><th>Tổng</th><th></th>
+</tr>
+
+@foreach (var i in Model)
+{
+<tr>
+<td>@i.ImportOrderId</td>
+<td>@i.ImportDate</td>
+<td>@i.TotalAmount</td>
+<td>
+    <a href="/ImportOrders/Details/@i.ImportOrderId">Xem</a>
+</td>
+</tr>
+}
+</table>

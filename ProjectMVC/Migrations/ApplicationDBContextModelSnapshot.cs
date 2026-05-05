@@ -21,6 +21,52 @@ namespace ProjectMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ProjectMVC.Models.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("ProjectMVC.Models.Entities.Student", b =>
+                {
+                    b.Property<string>("StudentCode")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("StudentCode");
+
+                    b.ToTable("Students");
+                });
+
             modelBuilder.Entity("ProjectMVC.Models.Person", b =>
                 {
                     b.Property<int>("Id")
@@ -45,20 +91,6 @@ namespace ProjectMVC.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Person");
 
                     b.UseTphMappingStrategy();
-                });
-
-            modelBuilder.Entity("ProjectMVC.Models.Student", b =>
-                {
-                    b.Property<string>("studentNumber")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("fullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("studentNumber");
-
-                    b.ToTable("Student");
                 });
 
             modelBuilder.Entity("ProjectMVC.Models.Employee", b =>

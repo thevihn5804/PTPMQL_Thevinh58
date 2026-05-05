@@ -11,10 +11,31 @@ namespace ProjectMVC.Data
         {
         }
 
-        public DbSet<Person> Person { get; set;}
+         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Device> Devices { get; set; }
+        public DbSet<ImportOrder> ImportOrders { get; set; }
+        public DbSet<ImportDetail> ImportDetails { get; set; }
+        public DbSet<ExportOrder> ExportOrders { get; set; }
+        public DbSet<ExportDetail> ExportDetails { get; set; }
 
-        // Khai báo bảng
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Employee> Employees { get; set; }
+         public DbSet<Faculty> Faculties { get; set; } = default!;
+        public DbSet<Student> Students { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Faculty>().HasData(
+            new Faculty { FacultyID = 1, FacultyName = "Cong nghe thong tin" },
+            new Faculty { FacultyID = 2, FacultyName = "Quan tri kinh doanh" },
+            new Faculty { FacultyID = 3, FacultyName = "Ngon ngu Anh" });
+
+        modelBuilder.Entity<Student>()
+            .HasOne(student => student.Faculty)
+            .WithMany(faculty => faculty.Students)
+            .HasForeignKey(student => student.FacultyID)
+            .OnDelete(DeleteBehavior.Restrict);
     }
+}
 }

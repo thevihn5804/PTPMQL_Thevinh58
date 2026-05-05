@@ -1,0 +1,23 @@
+<h2>Tạo phiếu nhập</h2>
+
+<form method="post">
+<table id="table" border="1">
+<tr><th>Thiết bị</th><th>SL</th><th>Giá</th></tr>
+</table>
+
+<button type="button" onclick="addRow()">+ Thêm</button>
+<button type="submit">Lưu</button>
+</form>
+
+<script>
+function addRow() {
+    var i = document.querySelectorAll("#table tr").length - 1;
+    var html = `
+<tr>
+<td><input name="Details[${i}].DeviceId" /></td>
+<td><input name="Details[${i}].Quantity" /></td>
+<td><input name="Details[${i}].UnitPrice" /></td>
+</tr>`;
+    document.getElementById("table").insertAdjacentHTML("beforeend", html);
+}
+</script>

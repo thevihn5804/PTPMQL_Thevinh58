@@ -1,0 +1,25 @@
+<h2>Tạo phiếu xuất</h2>
+
+<form method="post">
+<input name="CustomerName" placeholder="Khách hàng"/>
+
+<table id="table" border="1">
+<tr><th>Thiết bị</th><th>SL</th><th>Giá</th></tr>
+</table>
+
+<button type="button" onclick="addRow()">+ Thêm</button>
+<button type="submit">Lưu</button>
+</form>
+
+<script>
+function addRow() {
+    var i = document.querySelectorAll("#table tr").length - 1;
+    var html = `
+<tr>
+<td><input name="ExportDetails[${i}].DeviceId"/></td>
+<td><input name="ExportDetails[${i}].Quantity"/></td>
+<td><input name="ExportDetails[${i}].UnitPrice"/></td>
+</tr>`;
+    document.getElementById("table").insertAdjacentHTML("beforeend", html);
+}
+</script>

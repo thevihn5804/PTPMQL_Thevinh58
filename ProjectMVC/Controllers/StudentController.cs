@@ -42,21 +42,22 @@ namespace ProjectMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Student std)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(std);
+                var studentExists = await _context.Students.AnyAsync(student => student.StudentCode == std.StudentCode);
+                if (studentExists)
+                {
+                    ModelState.AddModelError(nameof(Student.StudentCode), "Ma sinh vien da ton tai.");
+                }
+                else
+                {
+                    _context.Students.Add(std);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
 
-            var studentExists = await _context.Students.AnyAsync(student => student.StudentCode == std.StudentCode);
-            if (studentExists)
-            {
-                ModelState.AddModelError(nameof(Student.StudentCode), "Ma sinh vien da ton tai.");
-                return View(std);
-            }
-
-            _context.Students.Add(std);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return View(std);
         }
 
         public async Task<IActionResult> Edit(string id)
@@ -84,20 +85,20 @@ namespace ProjectMVC.Controllers
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(std);
+                var studentExists = await _context.Students.AnyAsync(student => student.StudentCode == id);
+                if (!studentExists)
+                {
+                    return NotFound();
+                }
+
+                _context.Update(std);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
 
-            var studentExists = await _context.Students.AnyAsync(student => student.StudentCode == id);
-            if (!studentExists)
-            {
-                return NotFound();
-            }
-
-            _context.Update(std);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return View(std);
         }
 
         public async Task<IActionResult> Delete(string id)

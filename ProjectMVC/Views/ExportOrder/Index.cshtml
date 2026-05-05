@@ -1,0 +1,20 @@
+@model IEnumerable<ExportOrder>
+
+<h2>Phiếu xuất</h2>
+<a href="/ExportOrders/Create">+ Tạo</a>
+
+<table border="1">
+<tr><th>ID</th><th>Khách</th><th>Tổng</th><th></th></tr>
+
+@foreach (var e in Model)
+{
+<tr>
+<td>@e.ExportOrderId</td>
+<td>@e.CustomerName</td>
+<td>@e.TotalAmount</td>
+<td>
+<a href="/ExportOrders/Details/@e.ExportOrderId">Xem</a>
+</td>
+</tr>
+}
+</table>

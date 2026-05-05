@@ -1,0 +1,15 @@
+@model ImportOrder
+
+<h2>Chi tiết nhập</h2>
+
+<table border="1">
+@foreach (var d in Model.ImportDetails)
+{
+<tr>
+<td>@d.DeviceId</td>
+<td>@d.Quantity</td>
+<td>@d.UnitPrice</td>
+<td>@d.TotalPrice</td>
+</tr>
+}
+</table>

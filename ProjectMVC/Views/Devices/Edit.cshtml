@@ -1,0 +1,11 @@
+@model Device
+
+<h2>Sửa thiết bị</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="DeviceId" />
+    <input asp-for="DeviceName" />
+    <input asp-for="Quantity" />
+    <input asp-for="Price" />
+    <button type="submit">Cập nhật</button>
+</form>

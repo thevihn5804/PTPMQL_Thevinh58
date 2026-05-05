@@ -1,0 +1,31 @@
+@model ProjectMVC.Models.Entities.Student
+
+@{
+    ViewData["Title"] = "Xoa sinh vien";
+}
+
+<h2>Xoa sinh vien</h2>
+
+<div class="alert alert-warning">
+    Ban co chac chan muon xoa sinh vien nay khong?
+</div>
+
+<dl class="row">
+    <dt class="col-sm-3">Ma sinh vien</dt>
+    <dd class="col-sm-9">@Model.StudentCode</dd>
+
+    <dt class="col-sm-3">Ho ten</dt>
+    <dd class="col-sm-9">@Model.FullName</dd>
+
+    <dt class="col-sm-3">Tuoi</dt>
+    <dd class="col-sm-9">@(Model.Age?.ToString() ?? "-")</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.Email</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.StudentCode" method="post">
+    <input type="hidden" name="id" value="@Model.StudentCode" />
+    <button type="submit" class="btn btn-danger">Xac nhan xoa</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lai</a>
+</form>

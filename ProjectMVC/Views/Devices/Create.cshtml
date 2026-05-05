@@ -1,0 +1,10 @@
+@model Device
+
+<h2>Thêm thiết bị</h2>
+
+<form method="post">
+    <input asp-for="DeviceName" placeholder="Tên" />
+    <input asp-for="Quantity" placeholder="Số lượng" />
+    <input asp-for="Price" placeholder="Giá" />
+    <button type="submit">Lưu</button>
+</form>

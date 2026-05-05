@@ -1,0 +1,43 @@
+@model ProjectMVC.Models.Entities.Student
+
+@{
+    ViewData["Title"] = "Sua sinh vien";
+}
+
+<h2>Cap nhat sinh vien</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.StudentCode" method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="StudentCode" />
+
+    <div class="mb-3">
+        <label asp-for="StudentCode" class="form-label"></label>
+        <input asp-for="StudentCode" class="form-control" readonly />
+        <span asp-validation-for="StudentCode" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FullName" class="form-label"></label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Age" class="form-label"></label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cap nhat</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lai</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

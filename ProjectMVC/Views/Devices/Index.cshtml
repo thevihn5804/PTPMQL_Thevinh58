@@ -1,0 +1,24 @@
+@model IEnumerable<Device>
+
+<h2>Danh sách thiết bị</h2>
+<a href="/Devices/Create">+ Thêm</a>
+
+<table border="1">
+<tr>
+    <th>Tên</th><th>Số lượng</th><th>Giá</th><th></th>
+</tr>
+
+@foreach (var d in Model)
+{
+<tr>
+    <td>@d.DeviceName</td>
+    <td>@d.Quantity</td>
+    <td>@d.Price</td>
+    <td>
+        <a href="/Devices/Details/@d.DeviceId">Xem</a> |
+        <a href="/Devices/Edit/@d.DeviceId">Sửa</a> |
+        <a href="/Devices/Delete/@d.DeviceId">Xóa</a>
+    </td>
+</tr>
+}
+</table>

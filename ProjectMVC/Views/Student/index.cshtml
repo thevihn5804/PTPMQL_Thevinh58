@@ -27,6 +27,7 @@
             <th>Ma sinh vien</th>
             <th>Ho ten</th>
             <th>Tuoi</th>
+            <th>Email</th>
             <th style="width: 180px;">Thao tac</th>
         </tr>
     </thead>
@@ -39,6 +40,7 @@
                     <td>@student.StudentCode</td>
                     <td>@student.FullName</td>
                     <td>@(student.Age?.ToString() ?? "-")</td>
+                    <td>@(student.Email)</td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@student.StudentCode" class="btn btn-sm btn-warning">Sua</a>
                         <a asp-action="Delete" asp-route-id="@student.StudentCode" class="btn btn-sm btn-danger">Xoa</a>
@@ -49,7 +51,7 @@
         else
         {
             <tr>
-                <td colspan="4" class="text-center">Khong co du lieu phu hop.</td>
+                <td colspan="5" class="text-center">Khong co du lieu phu hop.</td>
             </tr>
         }
     </tbody>

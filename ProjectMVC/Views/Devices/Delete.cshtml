@@ -1,0 +1,10 @@
+@model Device
+
+<h2>Xóa thiết bị</h2>
+
+<p>Bạn có chắc muốn xóa @Model.DeviceName?</p>
+
+<form method="post">
+    <input type="hidden" asp-for="DeviceId" />
+    <button type="submit">Xóa</button>
+</form>
