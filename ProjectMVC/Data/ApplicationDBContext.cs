@@ -18,6 +18,7 @@ namespace ProjectMVC.Data
         public DbSet<ImportDetail> ImportDetails { get; set; }
         public DbSet<ExportOrder> ExportOrders { get; set; }
         public DbSet<ExportDetail> ExportDetails { get; set; }
+        public DbSet<Book> Books { get; set; }
 
          public DbSet<Faculty> Faculties { get; set; } = default!;
         public DbSet<Student> Students { get; set; } = default!;
